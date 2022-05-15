@@ -2,21 +2,22 @@ const gameBoard = (() => {
 
     const board = ['','','','','','','','',''];
     
+    function turns() {
+        //this conditional actually works
+        const stv = FactoryPlayer('stv');
 
-    return {};
-})();
+        if (3 === 3) {
 
-const gameFlow = (() => {
-
-    const winner = () => {
-        //announce winner
+            stv.selectCell();
+        }
     }
+    return {turns};
 })();
 
 const FactoryPlayer = (name) => {
 
     
-    const getName = () => console.log(name);
+    const getName = () => name; //console.log(name);
 
     const selectCell = () => {
         const cell = document.querySelectorAll('.cells');
@@ -33,7 +34,14 @@ const FactoryPlayer = (name) => {
     return {getName, selectCell};
 }
 
-const stv = FactoryPlayer('stv');
+// const gameFlow = (() => {
 
-stv.selectCell();
+//  winner = () => {
+    
+    // }
+
+//     return {};
+// })();
+
+gameBoard.turns();
 
