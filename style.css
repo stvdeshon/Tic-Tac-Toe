@@ -1,19 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-
 * {
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box 
+    box-sizing: border-box ;
 }
-
-*:focus {
-      outline: none;
-}
-
-input[type=text], input[type=number] {
-    border-radius: 5px;
-}
-
 
 html, body {
     width: 100vw;
@@ -22,128 +11,113 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #cbd5e1;
-    font-family: "Poppins", sans-serif;
-  }
+}
 
 header {
+    background-color: #41B3A3;
+    color: #2f2fa2;
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    font-size: 2rem;
+}
+
+main {
+    background-color: #85dbcb;
+    width: max(100%, 700px);
+    height: max(100%, 700px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+footer {
+    background-color: #85dbcb;
+    color: #2f2fa2;
     width: 100%;
-    gap: 15px;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+button {
+    margin: 30px 0 30px 0;
     padding: 10px;
-    background-color: #9a3412;
-}
-
-/* buttons */
-
-#new, #submit, #remove, #radio-result, .books, .close {
-    padding: 6px 10px;
     border-radius: 5px;
+    border: 1px solid black;
+    width: fit-content;
 }
 
-#radio-result {
-    background-color: red;   
+#vs {
+    font-size: 2rem;
+
 }
 
-/* Modals */
-
-#form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#form-container.show {
-    pointer-events: auto;
-    opacity: 1;
-}
-
-#closer {
-    display: flex;
-    justify-content: end;
-    gap: 40%;
-}
-
-#finished {
-    display: flex;
-    justify-content: start;
-}
-
-#book-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#book-container.show {
-    pointer-events: auto;
-    opacity: 1;
-}
-
-.book-modal {
-    background-color: white;
+#game-board {
     width: 600px;
+    height: 600px;
+    background-color: white;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cells {
+    border: 1px solid black;
+}
+
+
+/* player selection modal */
+
+#modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    opacity: 1;
+    background-color: #41B3A3;
+}
+
+#modal.close {
+    pointer-events: none;
+    opacity: 0;
+}
+
+#modal > form {
+    background-color: rgba(0,0,255);
+    width: fit-content;
     max-width: 100%;
-    padding: 20px 40px;
     border-radius: 5px;
     padding: 20px;
-}
-
-.book-modal > div {
-    display: flex;
-    justify-content: end;
-    gap: 30%;
-}
-
-#form-modal {
-    background-color: white;
-    width: 600px;
-    max-width: 100%;
-    padding: 20px 40px;
-    border-radius: 5px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* opacity: 1; */
+    color: azure;
+    font-family: roboto;
 }
 
-
-/* Library */
-main {
-    height: 100%;
-    width: 100%;
+input[type='submit'] {
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid black;
+    font-family: roboto;
 }
 
-#library {
-    margin: 5px;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    gap: 1px;
-
+/* Example: This is how you select a multi class element */
+/* .b.two, .b.three{
+    background-image: url(o.png);
 }
 
-.books {
-    height: 265px;
-    max-width: 100px;
-    overflow-wrap: break-word;
-    font-family: Roboto;
-    color:antiquewhite;
-    font-size: 1.3rem;
-}
+.b.one{
+    background-image: url(x.png);
+} */
