@@ -23,10 +23,14 @@ const gameBoard = (() => {
                 e.target.style.backgroundImage = 'url(x.png)' 
                 playerOneTurn = false;
                 board.splice(index, 1, 'x');
-
-                console.log(playerOneTurn);
-                console.log(index);
-                console.log(board);
+                if (board[0] === 'x' && board[1] === 'x' && board[2] === 'x' ||
+                    board[3] === 'x' && board[4] === 'x' && board[5] === 'x' ||
+                    board[6] === 'x' && board[7] === 'x' && board[8] === 'x' ||
+                    board[0] === 'x' && board[3] === 'x' && board[6] === 'x' ||
+                    board[1] === 'x' && board[4] === 'x' && board[7] === 'x' ||
+                    board[2] === 'x' && board[5] === 'x' && board[8] === 'x' ||
+                    board[0] === 'x' && board[4] === 'x' && board[8] === 'x' ||
+                    board[2] === 'x' && board[4] === 'x' && board[6] === 'x') winModal(playerOne.getName());
                 return;
             }
             if (!playerOneTurn && e.target.style.backgroundImage === '') {
@@ -34,10 +38,14 @@ const gameBoard = (() => {
                 playerOneTurn = true;
                 board.splice(index, 1, 'o');
 
-                console.log(playerOneTurn);
-                console.log(index);
-                console.log(board);
-                return;
+                if (board[0] === 'x' && board[1] === 'x' && board[2] === 'x' ||
+                board[3] === 'o' && board[4] === 'o' && board[5] === 'o' ||
+                board[6] === 'o' && board[7] === 'o' && board[8] === 'o' ||
+                board[0] === 'o' && board[3] === 'o' && board[6] === 'o' ||
+                board[1] === 'o' && board[4] === 'o' && board[7] === 'o' ||
+                board[2] === 'o' && board[5] === 'o' && board[8] === 'o' ||
+                board[0] === 'o' && board[4] === 'o' && board[8] === 'o' ||
+                board[2] === 'o' && board[4] === 'o' && board[6] === 'o') winModal(playerTwo.getName());
             }
         }
         cell.forEach((square) => {
@@ -48,6 +56,8 @@ const gameBoard = (() => {
     //create(), winner(), and reset() will need access to these
     const modal = document.querySelector('#modal');
     const submit = document.querySelector('#submit');
+    const winner = document.querySelector('#winner');
+    const resetBtn = document.querySelector('#restart');
     //these are the inputs for players one and two
     const first = document.getElementById('first');
     const second = document.getElementById('second');
@@ -59,14 +69,22 @@ const gameBoard = (() => {
         playerOne =  FactoryPlayer(first.value || 'You');
         playerTwo = FactoryPlayer(second.value || 'Computer');  
         modal.classList.add('close');
-        vs.textContent = `${playerOne.getName()} VS ${playerTwo.getName()}`
-        console.log(playerOne.getName());
+        vs.textContent = `${playerOne.getName()} VS ${playerTwo.getName()}`;
         });
     }
 
-    function winner() {
-        //display winner popup and offer reset button
+    function winModal(player) {
+        winner.textContent = `The Winner Is ${player}`;
+        winner.classList.add('show');
     }
+
+    function reset() {
+        //reset everything to default
+        winner.classList.remove('show');
+    }
+
+    resetBtn.addEventListener('click', reset);
+    
 
     createPlayer();
     selection();
