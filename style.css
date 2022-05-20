@@ -1,8 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
 * {
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box ;
+    box-sizing: border-box 
 }
+
+*:focus {
+      outline: none;
+}
+
+input[type=text], input[type=number] {
+    border-radius: 5px;
+}
+
 
 html, body {
     width: 100vw;
@@ -11,64 +22,128 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-}
+    background-color: #cbd5e1;
+    font-family: "Poppins", sans-serif;
+  }
 
 header {
-    background-color: #41B3A3;
-    color: #2f2fa2;
-    width: 100%;
-    text-align: center;
-    padding: 40px;
-    font-size: 2rem;
-}
-
-main {
-    background-color: #85dbcb;
-    width: max(100%, 700px);
-    height: max(100%, 700px);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    padding: 10px;
+    background-color: #9a3412;
+}
+
+/* buttons */
+
+#new, #submit, #remove, #radio-result, .books, .close {
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+#radio-result {
+    background-color: red;   
+}
+
+/* Modals */
+
+#form-container {
+    display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
 }
 
-footer {
-    background-color: #85dbcb;
-    color: #2f2fa2;
-    width: 100%;
-    font-size: 1.3rem;
-    text-align: center;
-    padding-bottom: 10px;
+#form-container.show {
+    pointer-events: auto;
+    opacity: 1;
 }
 
-button {
-    margin: 30px 0 30px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid black;
-    width: fit-content;
+#closer {
+    display: flex;
+    justify-content: end;
+    gap: 40%;
 }
 
-#game-board {
-    width: 600px;
-    height: 600px;
+#finished {
+    display: flex;
+    justify-content: start;
+}
+
+#book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#book-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.book-modal {
     background-color: white;
-    border: 1px solid black;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
+    width: 600px;
+    max-width: 100%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    padding: 20px;
 }
 
-.cells {
-    border: 1px solid black;
+.book-modal > div {
+    display: flex;
+    justify-content: end;
+    gap: 30%;
+}
+
+#form-modal {
+    background-color: white;
+    width: 600px;
+    max-width: 100%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 
-/* Example: This is how you select a multi class element */
-/* .b.two, .b.three{
-    background-image: url(o.png);
+/* Library */
+main {
+    height: 100%;
+    width: 100%;
 }
 
-.b.one{
-    background-image: url(x.png);
-} */
+#library {
+    margin: 5px;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1px;
+
+}
+
+.books {
+    height: 265px;
+    max-width: 100px;
+    overflow-wrap: break-word;
+    font-family: Roboto;
+    color:antiquewhite;
+    font-size: 1.3rem;
+}

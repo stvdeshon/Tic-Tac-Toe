@@ -5,28 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="tic-tac-toe.js" defer></script>
-    <title>Tic Tac Toe</title>
+    <script src="library.js" defer></script>
+    <title>Library</title>
 </head>
 <body>
     <header>
-        <h1>Tic Tac Toe</h1>
+        <h1>Library</h1>
+        <button id="new">Add Book</button>
     </header>
     <main>
-            <button>Choose Marker</button>
-            <div id="game-board">
-                <div class="cells a one"></div>
-                <div class="cells b one"></div>
-                <div class="cells c one"></div>
-                <div class="cells a two"></div>
-                <div class="cells b two"></div>
-                <div class="cells c two"></div>
-                <div class="cells a three"></div>
-                <div class="cells b three"></div>
-                <div class="cells c three "></div>
+        <div id="form-container">
+            <div id="form-modal">
+                    <form action="#" id="add-book">
+                    <label>
+                        <p>Title:</p>
+                        <input type="text" name="title" id="title" minlength="1" maxlength="36" required>
+                    </label>
+                    <br>
+                    <label>
+                        <p>Author:</p>
+                        <input type="text" name="author" id="author" required>
+                    </label>
+                    <br>
+                    <label>
+                        <p># of Pages:</p>
+                        <input type="number" name="pages" id="pages" required>
+                    </label>
+                    <br>
+                        <p>Have you finished the book?</p>
+                    <div id="finished">
+                        <label>
+                            <input type="radio" name="read" id="yes" value="Yes">Yes</input>
+                        </label>
+                        <label>
+                            <input type="radio" name="read" id="no" value="No" checked>No</input>
+                        </label>
+                    </div>
+                </form>
+                <br>
+                <div id="closer">
+                    <button form="add-book" id="submit" disabled>Submit</button>
+                    <button class="close">close</button>
+                </div>
             </div>
-            <button>Restart</button>
+        </div>
+        <div id="library">         
+            <div id="book-container">
+                <div class="book-modal">
+                    <p id="book-title">Title</p>
+                    <br>
+                    <p id="book-author">Author</p>
+                    <br>
+                    <p id="book-pages">Page Count</p>
+                    <br>
+                    <button id="radio-result"></button>
+                    <div>
+                    <button id="remove">Remove From Library</button>
+                    <button class="close">Close</button>
+                    </div>
+                </div>
+            </div>
+    </div>
     </main>
-    <footer>Stephen Deshon 2022</footer>
+    <footer>
+        <p>Stephen Deshon 2022</p>
+    </footer>
 </body>
 </html>
