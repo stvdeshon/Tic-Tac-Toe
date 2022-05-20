@@ -30,7 +30,9 @@ const gameBoard = (() => {
                     board[1] === 'x' && board[4] === 'x' && board[7] === 'x' ||
                     board[2] === 'x' && board[5] === 'x' && board[8] === 'x' ||
                     board[0] === 'x' && board[4] === 'x' && board[8] === 'x' ||
-                    board[2] === 'x' && board[4] === 'x' && board[6] === 'x') winModal(playerOne.getName());
+                    board[2] === 'x' && board[4] === 'x' && board[6] === 'x') {
+                        winModal(playerOne.getName());
+                    } 
                 return;
             }
             if (!playerOneTurn && e.target.style.backgroundImage === '') {
@@ -45,7 +47,9 @@ const gameBoard = (() => {
                 board[1] === 'o' && board[4] === 'o' && board[7] === 'o' ||
                 board[2] === 'o' && board[5] === 'o' && board[8] === 'o' ||
                 board[0] === 'o' && board[4] === 'o' && board[8] === 'o' ||
-                board[2] === 'o' && board[4] === 'o' && board[6] === 'o') winModal(playerTwo.getName());
+                board[2] === 'o' && board[4] === 'o' && board[6] === 'o') {
+                    winModal(playerTwo.getName());
+                }
             }
         }
         cell.forEach((square) => {
@@ -74,7 +78,13 @@ const gameBoard = (() => {
     }
 
     function winModal(player) {
-        winner.textContent = `The Winner Is ${player}`;
+        if (board[0] !== '' && board[1] !== '' && board[2] !== '' &&
+                board[3] !== '' && board[4] !== '' && board[5] !== '' &&
+                board[6] !== '' && board[7] !== '' && board[8] !== '') {
+                    winner.textContent = 'It was a tie!';
+                } else {
+                    winner.textContent = `The Winner Is ${player}`;
+            }
         winner.classList.add('show');
     }
 
