@@ -8,12 +8,11 @@ const FactoryPlayer = (name) => {
 
 const gameBoard = (() => {
 
-    const board = ['','','','','','','','',''];
+    let board = ['','','','','','','','',''];
     const cell = document.querySelectorAll('.cells');
-
+    let playerOneTurn = true;
     function selection() {
-        let playerOneTurn = true;
-
+        
         const turns = (e) => {
             const target = e.target;
             const parent = target.parentNode;
@@ -90,8 +89,15 @@ const gameBoard = (() => {
     }
 
     function reset() {
-        //reset everything to default
+        board = ['','','','','','','','',''];
+        cell.forEach((marker) => {
+            marker.style.backgroundImage = '';
+        })
+        first.value = '';
+        second.value = '';
+        playerOneTurn = true;
         winner.classList.remove('show');
+        modal.classList.remove('close');
     }
 
     resetBtn.addEventListener('click', reset);

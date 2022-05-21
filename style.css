@@ -12,15 +12,19 @@ html, body {
     justify-content: space-between;
     align-items: center;
     font-family: roboto;
+    position: relative;
 }
 
-header {
-    background-color: #41B3A3;
+header, h1 {
+    position: absolute;
+    top: 20px;
+    background-color: #85dbcb;
     color: #2f2fa2;
     width: 100%;
     text-align: center;
-    padding: 40px;
-    font-size: 2rem;
+    padding: 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
 }
 
 main {
@@ -43,7 +47,7 @@ footer {
 }
 
 button {
-    margin: 30px 0 30px 0;
+    margin: 30px 0;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
@@ -52,7 +56,6 @@ button {
 
 #vs {
     font-size: 2rem;
-
 }
 
 #game-board {
@@ -74,6 +77,7 @@ button {
 
 #modal {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -83,7 +87,7 @@ button {
     width: 100vw;
     background-color: white;
     opacity: 1;
-    background-color: #41B3A3;
+    background-color: #85dbcb;
 }
 
 #modal.close {
@@ -101,7 +105,7 @@ button {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    /* opacity: 1; */
+    opacity: 1;
     color: azure;
     font-family: roboto;
 }
@@ -134,8 +138,4 @@ input[type='submit'] {
 #winner.show {
     pointer-events: auto;
     opacity: .9;
-}
-
-#restart {
-    z-index: 1;
 }
