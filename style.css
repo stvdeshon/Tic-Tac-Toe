@@ -116,6 +116,7 @@ input[type='submit'] {
 
 #winner {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -133,4 +134,8 @@ input[type='submit'] {
 #winner.show {
     pointer-events: auto;
     opacity: .9;
+}
+
+#restart {
+    z-index: 1;
 }
